@@ -54,7 +54,7 @@ app.get('/images/fullsize/:img',(req,res) => {
 })
 
 //Generates the XLS order Form
-app.put('/get-xls',jsonParser,(req,res) => {
+app.post('/get-xls',jsonParser,(req,res) => {
     //will take in an object {orderNumber:order#,items:{item-type:qty,item-type:qty}}
     let tempStuff = req.body
 
