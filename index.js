@@ -72,7 +72,8 @@ app.post('/get-xls',jsonParser,(req,res) => {
     worksheet.cell(2,2).string("QTY");
     //Add our data into the worksheet
     Object.keys(items).forEach((cur,dex) => {
-        worksheet.cell(dex+3,1).string(cur)
+        let imgName = cur.split('?')[0]
+        worksheet.cell(dex+3,1).string(imgName)
         worksheet.cell(dex+3,2).number(items[cur])
     })
 
