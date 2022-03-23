@@ -61,13 +61,13 @@ app.post('/get-xls',jsonParser,(req,res) => {
 
     //Set up a workbook
     let workbook = new excel.Workbook();
-    let worksheet = workbook.addWorksheet(`${orderNumber}`)
+    let worksheet = workbook.addWorksheet("Order")
 
     //Set up some styling
     //........
 
     //set up the header
-    worksheet.cell(1,1,1,2,true).string(`${orderNumber}`);
+    worksheet.cell(1,1,1,2,true).string('hello');
     worksheet.cell(2,1).string("Image");
     worksheet.cell(2,2).string("QTY");
     //Add our data into the worksheet
