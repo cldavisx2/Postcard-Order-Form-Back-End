@@ -66,10 +66,15 @@ app.post('/get-xls',jsonParser,(req,res) => {
     //Set up some styling
     //........
 
-    //Add our data into the worksheet
+    //set up the headings
     worksheet.cell(1,1,1,2,true).string(`${orderNumber}`);
-    worksheet.cell(1,2).string("Image");
+    worksheet.cell(2,1).string("Image");
     worksheet.cell(2,2).string("QTY");
+    //Add our data into the worksheet
+    Object.keys(items).forEach((cur,dex) => {
+        worksheet.cell(dex+3,1).string(cur)
+        worksheet.cell(dex+3,2).string(items[cur])
+    })
 
     //write the file and send it to the frontend
     workbook.write('orders/myOrder.xlsx', () => {
