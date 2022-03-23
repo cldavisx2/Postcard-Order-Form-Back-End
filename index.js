@@ -71,9 +71,9 @@ app.post('/get-xls',jsonParser,(req,res) => {
     worksheet.cell(2,1).string("Image");
     worksheet.cell(2,2).string("QTY");
     //Add our data into the worksheet
-    Object.keys(items).forEach((cur,dex) => {
-        worksheet.cell(dex+3,1).string(cur);
-    })
+    // Object.keys(items).forEach((cur,dex) => {
+    //     worksheet.cell(dex+3,1).string(cur);
+    // })
 
 
     //write the file and send it to the frontend
