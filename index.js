@@ -56,17 +56,20 @@ app.get('/images/fullsize/:img',(req,res) => {
 //Generates the XLS order Form
 app.post('/get-xls',jsonParser,(req,res) => {
     //will take in an object {orderNumber:order#,items:{item-type:qty,item-type:qty}}
-    // let data = req.body
+    let orderNumber = req.body.orderNumber;
+    let items = req.body.items;
 
     //Set up a workbook
     let workbook = new excel.Workbook();
-    let worksheet = workbook.addWorksheet('PO# XXXX-XXXXXX')
+    let worksheet = workbook.addWorksheet(`${orderNumber}`)
 
     //Set up some styling
     //........
 
     //Add our data into the worksheet
-    worksheet.cell(1,1).string('ORDER NUMBER')
+    worksheet.cell(1,1,1,2,true).string(`${orderNumber}`);
+    worksheet.cell(1,2).string("Image");
+    worksheet.cell(2,2).string("QTY");
 
     //write the file and send it to the frontend
     workbook.write('orders/myOrder.xlsx', () => {
