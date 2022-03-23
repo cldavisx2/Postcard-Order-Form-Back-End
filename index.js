@@ -73,7 +73,7 @@ app.post('/get-xls',jsonParser,(req,res) => {
     //Add our data into the worksheet
     Object.keys(items).forEach((cur,dex) => {
         worksheet.cell(dex+3,1).string(cur)
-        worksheet.cell(dex+3,2).string(items[cur])
+        worksheet.cell(dex+3,2).string(items[`${cur}`])
     })
 
     //write the file and send it to the frontend
