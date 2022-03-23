@@ -70,8 +70,9 @@ app.post('/get-xls',jsonParser,(req,res) => {
 
     //write the file and send it to the frontend
     workbook.write('orders/4802-123456.xlsx', () => {
-        res.sendFile(__dirname + '/orders/4802-123456.xlsx');
+       // res.sendFile(__dirname + '/orders/4802-123456.xlsx');
     })
+    res.send('heelo')
 })
 
 
