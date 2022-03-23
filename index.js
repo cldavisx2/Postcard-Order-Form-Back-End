@@ -66,7 +66,7 @@ app.post('/get-xls',jsonParser,(req,res) => {
     //........
 
     //Add our data into the worksheet
-    worksheet.cell(1,1).string(`${data.orderNumber}`)
+    worksheet.cell(1,1).string('ORDER NUMBER')
 
     //write the file and send it to the frontend
     workbook.write('orders/4802-123456.xlsx', () => {
