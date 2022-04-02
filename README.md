@@ -12,6 +12,8 @@ Generates .xlsx file with cart data provided by the front end and sends it to ba
 
 The Database Migration folder contains a script which transfered data from an SQLite3 db to MongoDB
 
+The Images folder contains a script which created thumbnails for all the images
+
 ## Tech
 Node.js
 Express
