@@ -70,7 +70,10 @@ app.post('/get-xls',jsonParser,(req,res) => {
     worksheet.cell(1,1,1,2,true).string(`${orderNumber}`);
     worksheet.cell(2,1).string("Image");
     worksheet.cell(2,2).string("QTY");
+
     //Add our data into the worksheet
+    //this works for now, but assumes we only have postcards, in the future we will
+    //want to differentiate between diffrent types of items (postcards, notecards, prints, etc)
     Object.keys(items).forEach((cur,dex) => {
         let imgName = cur.split('?')[0]
         worksheet.cell(dex+3,1).string(imgName)
